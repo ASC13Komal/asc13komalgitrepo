@@ -1,0 +1,72 @@
+<br>
+<h3 style="text-align: center; font-style: italic;"> Add Issue here...!!</h3>
+
+<form (ngSubmit)="createIssue()">
+
+    <div class="form-group">
+        <label for="id"> Id: </label>
+        <input type="number" class="form-control" name="id" [(ngModel)]="issue.id" #id="ngModel" required>
+        <div *ngIf="id.invalid && id.touched" class="text-danger"> Id is required </div>
+    </div> 
+     
+    <div class="form-group">
+        <label for="title"> Title: </label>
+        <input type="text" class="form-control" name="title" [(ngModel)]="issue.title" #title="ngModel" required>
+        <div *ngIf="title.invalid && title.touched" class="text-danger">
+            <div *ngIf="title.errors?.['required']"> Title Name is required. </div>
+            <div *ngIf="title.errors?.['minlength']"> Title Name must be atleast 3 characters. </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="description"> Description: </label>
+        <input type="text" class="form-control" name="address" [(ngModel)]="issue.description" #description="ngModel" required>
+        <div *ngIf="description.invalid && description.touched" class="text-danger"> Description is required </div>
+    </div>
+
+    <div class="form-group">
+        <label for="priority"> Priority: </label>
+        <select name="priority" class="form-control" [(ngModel)]="issue.priority" #priority="ngModel" required>
+            <option value="" disabled> Select Priority</option>
+            <option value="High"> High </option>
+            <option value="Medium"> Medium </option>
+            <option value="Critical"> Critical </option>
+        </select>
+        <div *ngIf="priority.invalid && priority.touched" class="text-danger"> Please select priority </div>
+    </div>
+
+    <div class="form-group">
+        <label for="status"> Status: </label>
+        <select name="status" class="form-control" [(ngModel)]="issue.status" #status="ngModel" required>
+            <option value="" disabled> Select Status</option>
+            <option value="Open"> Open </option>
+            <option value="In Progress"> In Progress </option>
+            <option value="Resolved"> Resolved </option>
+        </select>
+        <div *ngIf="status.invalid && status.touched" class="text-danger"> Please select status </div>
+    </div>
+
+    <div class="form-group">
+        <label for="assignee"> Assignee: </label>
+        <input type="text" class="form-control" name="assignee" [(ngModel)]="issue.assignee" #assignee="ngModel" required>
+        <div *ngIf="assignee.invalid && assignee.touched" class="text-danger">
+            <div *ngIf="assignee.errors?.['required']"> Name is required. </div>
+            <div *ngIf="assignee.errors?.['minlength']"> Name must be atleast 3 characters. </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="date"> Date: </label>
+        <input type="date" class="form-control" name="date" [(ngModel)]="issue.date" #date="ngModel" required>
+        <div *ngIf="date.invalid && date.touched" class="text-danger"> Date is required </div>
+    </div>
+
+    <br>
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+
+    <button class="btn btn-success" class="btn btn-warning"> Add </button>
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+    <button type="reset" class="btn btn-info"> Clear </button>
+    <br><br>
+</form>
+
