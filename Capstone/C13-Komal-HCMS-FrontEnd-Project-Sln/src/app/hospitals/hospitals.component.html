@@ -1,0 +1,80 @@
+<div class="hospitals-container">
+  <h2 class="title">Manage Hospitals</h2>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input 
+      type="text" 
+      placeholder="Search by Hospital ID or Name" 
+      [(ngModel)]="searchQuery" 
+      class="search-input"
+    />
+    <button class="btn search-btn" (click)="searchHospitals()">Search</button>
+  </div>
+
+  <!-- Add Hospital Button -->
+  <button class="btn add-btn" (click)="toggleAddForm()">Add New Hospital</button>
+
+  <!-- Add Hospital Form -->
+  <div *ngIf="showAddForm" class="form-container">
+    <h3>Add Hospital</h3>
+    <form (ngSubmit)="addHospital()">
+      <label for="name">Hospital Name:</label>
+      <input 
+        type="text" 
+        id="name" 
+        [(ngModel)]="newHospital.name" 
+        name="name" 
+        required 
+      />
+
+      <label for="location">Location:</label>
+      <input 
+        type="text" 
+        id="location" 
+        [(ngModel)]="newHospital.address" 
+        name="location" 
+        required 
+      />
+
+      <label for="contact">Contact Number:</label>
+      <input 
+        type="text" 
+        id="contact" 
+        [(ngModel)]="newHospital.contact" 
+        name="contact" 
+        required 
+      />
+
+      <button type="submit" class="btn submit-btn">Save</button>
+    </form>
+  </div>
+
+  <!-- Hospital List -->
+  <div class="list-container">
+    <h3>Hospital List</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Hospital ID</th>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Contact</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hospital of hospitals">
+          <td>{{ hospital.id }}</td>
+          <td>{{ hospital.name }}</td>
+          <td>{{ hospital.address }}</td>
+          <td>{{ hospital.contact }}</td>
+          <td>
+            <button class="btn edit-btn" (click)="editHospital(hospital)">Edit</button>
+            <button class="btn delete-btn" (click)="deleteHospital(hospital.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

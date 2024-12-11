@@ -1,0 +1,149 @@
+/* General Body Styles */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #74ebd5, #9face6); /* Soft gradient background */
+  font-family: 'Poppins', sans-serif; /* Modern font */
+}
+
+/* Center the login form */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  flex-direction: column;
+}
+
+/* Title Styles */
+.title h1 {
+  font-size: 36px;
+  color: #333; /* Dark grey for better contrast */
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif; /* Modern, clean font for title */
+}
+
+/* Login Box Styling */
+.login-box {
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque background */
+  padding: 40px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow for depth */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Subtitle */
+.login-box h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #4a4a4a; /* Dark grey for readability */
+  font-weight: 600;
+}
+
+/* Form Group Styles */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Label Styling */
+.form-group label {
+  font-size: 16px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Input Field Styling */
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+/* Focused Input */
+.form-group input:focus {
+  border-color: #4caf50; /* Highlight with green on focus */
+  outline: none;
+}
+
+/* Error Message Styling */
+.error {
+  color: #f44336; /* Red for error messages */
+  font-size: 12px;
+}
+
+/* Show Password Section */
+.show-password {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.show-password input {
+  margin-right: 5px;
+}
+
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50; /* Green for the button */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Disabled Button */
+button:disabled {
+  background-color: #c8e6c9;
+  cursor: not-allowed;
+}
+
+/* Hover State for Button */
+button:hover:not(:disabled) {
+  background-color: #388e3c; /* Darker green on hover */
+}
+
+/* Register Link Styling */
+.register-link p {
+  margin-top: 20px;
+  color: #333;
+}
+
+.register-link a {
+  text-decoration: none;
+  color: #4caf50; /* Green for the register link */
+  font-weight: 500;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .login-box {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .title h1 {
+    font-size: 30px;
+  }
+
+  .login-box h2 {
+    font-size: 24px;
+  }
+}

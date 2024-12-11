@@ -1,0 +1,81 @@
+<div class="reviews-container">
+  <h2 class="title">Manage Reviews</h2>
+
+  <!-- back-button.component.html -->
+<!-- <button (click)="goBack()">Back to Dashboard</button> -->
+<button class="btn back-btn" id="backbtn" (click)="goBack()">Back to Dashboard</button>
+
+  <!-- Add/Edit Review Form -->
+  <div class="form-container">
+    <form [formGroup]="reviewForm" (ngSubmit)="addReview()">
+      <!-- Doctor ID -->
+      <label for="doctorId">Doctor ID:</label>
+      <input type="number" id="doctorId" formControlName="doctorId" required />
+      <div *ngIf="reviewForm.get('doctorId')?.invalid && reviewForm.get('doctorId')?.touched" class="error-message">
+        Doctor ID is required.
+      </div>
+
+      <!-- Patient ID -->
+      <label for="patientId">Patient ID:</label>
+      <input type="number" id="patientId" formControlName="patientId" required />
+      <div *ngIf="reviewForm.get('patientId')?.invalid && reviewForm.get('patientId')?.touched" class="error-message">
+        Patient ID is required.
+      </div>
+
+      <!-- Rating -->
+      <label for="rating">Rating (1-5):</label>
+      <input type="number" id="rating" formControlName="rating" min="1" max="5" required />
+      <div *ngIf="reviewForm.get('rating')?.invalid && reviewForm.get('rating')?.touched" class="error-message">
+        Rating must be between 1 and 5.
+      </div>
+
+      <!-- Comments -->
+      <label for="comments">Comments:</label>
+      <textarea id="comments" formControlName="comments" required></textarea>
+      <div *ngIf="reviewForm.get('comments')?.invalid && reviewForm.get('comments')?.touched" class="error-message">
+        Comments are required.
+      </div>
+
+      <button type="submit" class="btn submit-btn" [disabled]="reviewForm.invalid">
+        Submit
+      </button>
+    </form>
+  </div>
+
+  <!-- Reviews List -->
+  <div class="list-container">
+    <h3>Reviews List</h3>
+        <!-- Search Bar -->
+    <div class="search-container">
+      <input type="number" [(ngModel)]="searchRating" placeholder="Search by Rating (1-5)"
+        class="search-input" min="1" max="5" />
+      <button class="btn search-btn" (click)="searchReviews()">Search</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Review ID</th>
+          <th>Doctor ID</th>
+          <th>Patient ID</th>
+          <th>Rating</th>
+          <th>Comments</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let review of filteredReviews">
+          <td>{{ review.id }}</td>
+          <td>{{ review.doctorId }}</td>
+          <td>{{ review.patientId }}</td>
+          <td>{{ review.rating }}</td>
+          <td>{{ review.comments }}</td>
+          <td>
+            <button class="btn delete-btn" (click)="deleteReview(review.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

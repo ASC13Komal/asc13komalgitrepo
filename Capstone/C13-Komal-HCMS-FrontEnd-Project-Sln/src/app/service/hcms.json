@@ -1,0 +1,78 @@
+{
+  "admins": [
+    {
+      "id": "1",
+      "email": "admin@hcms.com",
+      "password": "Admin@123"
+    }
+  ],
+  "doctors": [
+    {
+      "id": "1",
+      "name": "Dr. Smith",
+      "specialization": "Cardiologist",
+      "email": "smith@hospital.com",
+      "phone": "1234567890"
+    },
+    {
+      "id": "2",
+      "name": "Dr. Johnson",
+      "specialization": "Neurologist",
+      "email": "johnson@hospital.com",
+      "phone": "0987654321"
+    }
+  ],
+  "patients": [
+    {
+      "id": 0,
+      "name": "Dr. Pooja",
+      "dob": "2024-12-11",
+      "address": "jdskafl",
+      "phone": "4765293822",
+      "email": "abdaf@gmail.com"
+    },
+    {
+      "id": 0,
+      "name": "John Subhash",
+      "dob": "2024-12-11",
+      "address": "123",
+      "phone": "4765293822",
+      "email": "kn"
+    },
+    {
+      "id": 0,
+      "name": "Charani",
+      "dob": "2024-12-19",
+      "address": "Dvg",
+      "phone": "98776467898",
+      "email": "charani@gmail.com"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "1",
+      "doctorId": 1,
+      "patientId": 1,
+      "date": "2024-01-01",
+      "time": "10:00 AM",
+      "status": "Scheduled"
+    }
+  ],
+  "hospitals": [
+    {
+      "id": "1",
+      "name": "Apollo Hospitals",
+      "address": "City Center",
+      "contact": "3333333333"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "doctorId": 1,
+      "patientId": 1,
+      "rating": 5,
+      "comment": "Excellent service!"
+    }
+  ]
+}

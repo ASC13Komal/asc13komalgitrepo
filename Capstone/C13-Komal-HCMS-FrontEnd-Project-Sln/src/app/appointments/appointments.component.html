@@ -1,0 +1,101 @@
+<div class="appointments-container">
+  <h2 class="title">Manage Appointments</h2>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input 
+      type="text" 
+      placeholder="Search by Appointment ID, Patient Name or status" 
+      [(ngModel)]="searchQuery" 
+      class="search-input"
+    />
+    <button class="btn search-btn" (click)="searchAppointments()">Search</button>
+  </div>
+
+  <!-- Add/Edit Appointment Button -->
+  <button class="btn add-btn" (click)="toggleAddForm()">Add New Appointment</button>
+
+  <!-- Add/Edit Appointment Form -->
+  <div *ngIf="showAddForm" class="form-container">
+    <h3>{{ editMode ? 'Edit Appointment' : 'Add Appointment' }}</h3>
+    <form (ngSubmit)="editMode ? updateAppointment() : addAppointment()">
+      <label for="doctor">Doctor:</label>
+      <input 
+        type="text" 
+        id="doctor" 
+        [(ngModel)]="newAppointment.doctor" 
+        name="doctor" 
+        required 
+      />
+
+      <label for="patient">Patient:</label>
+      <input 
+        type="text" 
+        id="patient" 
+        [(ngModel)]="newAppointment.patient" 
+        name="patient" 
+        required 
+      />
+
+      <label for="date">Date:</label>
+      <input 
+        type="date" 
+        id="date" 
+        [(ngModel)]="newAppointment.date" 
+        name="date" 
+        required 
+      />
+
+      <label for="time">Time:</label>
+      <input 
+        type="time" 
+        id="time" 
+        [(ngModel)]="newAppointment.time" 
+        name="time" 
+        required 
+      />
+
+      <label for="status">Status:</label>
+      <select id="status" [(ngModel)]="newAppointment.status" name="status" required>
+        <option value="">Select Status</option>
+        <option value="Scheduled">Scheduled</option>
+        <option value="Completed">Completed</option>
+        <option value="Cancelled">Cancelled</option>
+      </select>
+
+      <button type="submit" class="btn submit-btn">{{ editMode ? 'Update' : 'Save' }}</button>
+    </form>
+  </div>
+
+  <!-- Appointments List -->
+  <div class="list-container">
+    <h3>Appointments List</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Appointment ID</th>
+          <th>Doctor</th>
+          <th>Patient</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments">
+          <td>{{ appointment.id }}</td>
+          <td>{{ appointment.doctor }}</td>
+          <td>{{ appointment.patient }}</td>
+          <td>{{ appointment.date }}</td>
+          <td>{{ appointment.time }}</td>
+          <td>{{ appointment.status }}</td>
+          <td>
+            <button class="btn edit-btn" (click)="editAppointment(appointment)">Edit</button>
+            <button class="btn delete-btn" (click)="deleteAppointment(appointment.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

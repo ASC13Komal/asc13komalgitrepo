@@ -1,0 +1,83 @@
+   <div class="register-container">
+    <div class="title">
+      <h1>HEALTHCARE MANAGEMENT SYSTEM</h1>
+    </div>
+    <div class="register-box">
+      <h2>Admin Registration</h2>
+      <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+  
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            placeholder="Enter your name"
+          />
+          <small *ngIf="name.invalid && name.touched">
+            {{ getNameErrorMessage() }}
+          </small>
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Login-Id</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            placeholder="Enter your email"
+          />
+          <small *ngIf="email.invalid && email.touched">
+            {{ getEmailErrorMessage() }}
+          </small>
+        </div>
+  
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input
+            type="text"
+            id="phone"
+            formControlName="phone"
+            placeholder="Enter your phone number"
+          />
+          <small *ngIf="phone.invalid && phone.touched">
+            {{ getPhoneErrorMessage() }}
+          </small>
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            placeholder="Enter your password"
+          />
+          <small *ngIf="password.invalid && password.touched">
+            {{ getPasswordErrorMessage() }}
+          </small>
+        </div>
+  
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            placeholder="Confirm your password"
+          />
+          <small *ngIf="confirmPassword.invalid && confirmPassword.touched">
+            Passwords must match.
+          </small>
+        </div>
+  
+        <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  
+        <button type="submit" [disabled]="registerForm.invalid">
+          Register
+        </button>
+  
+      </form>
+    </div>
+  </div>
+  

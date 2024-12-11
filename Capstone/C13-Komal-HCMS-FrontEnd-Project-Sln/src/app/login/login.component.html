@@ -1,0 +1,59 @@
+<div class="login-container">
+  <div class="title">
+    <h1>HEALTHCARE MANAGEMENT SYSTEM</h1>
+  </div>
+  <div class="login-box">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+      <div class="form-group">
+        <label for="email">Login-Id</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Enter your email"
+        />
+        <small *ngIf="email.invalid && email.touched">
+          {{ getEmailErrorMessage() }}
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          id="password"
+          formControlName="password"
+          placeholder="Enter your password"
+        />
+        <small *ngIf="password.invalid && password.touched">
+          {{ getPasswordErrorMessage() }}
+        </small>
+      </div>
+
+      <!-- Show Password Option -->
+      <div class="show-password">
+        <input type="checkbox" (change)="toggleShowPassword()" /> Show Password
+      </div>
+
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+      <p *ngIf="isAccountLocked" class="error">
+        Your account is locked. Try again after {{ lockRemainingTime }} minutes.
+      </p>
+
+      <button type="submit" [disabled]="loginForm.invalid || isAccountLocked">
+        Login
+      </button>
+
+    </form>
+    
+    <!-- Register Link -->
+    <div class="register-link">
+      <p>New Admin?  <a routerLink="/register"> Register here</a></p>
+    </div>
+
+  </div>
+</div>
+

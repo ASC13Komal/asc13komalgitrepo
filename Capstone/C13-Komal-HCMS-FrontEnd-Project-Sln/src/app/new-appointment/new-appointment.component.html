@@ -1,0 +1,110 @@
+<div class="appointments-container">
+  <button class="btn back-btn" id="backbtn" (click)="goBack()">Back to Dashboard</button>
+
+  <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+    <h2 class="title">Appointment Form</h2>
+
+    <!-- Patient Name -->
+    <div class="form-group">
+      <label for="patientName">Patient Name:</label>
+      <input
+        id="patientName"
+        type="text"
+        formControlName="patientName"
+        placeholder="Enter Patient Name"
+        required
+      />
+    </div>
+    <div *ngIf="appointmentForm.get('patientName')?.touched && appointmentForm.get('patientName')?.invalid">
+      <small class="error">Patient Name is required and must have at least 3 characters.</small>
+    </div>
+
+    <!-- Appointment Date -->
+    <div class="form-group">
+      <label for="appointmentDate">Date of Appointment:</label>
+      <input
+        id="appointmentDate"
+        type="date"
+        formControlName="appointmentDate"
+        required
+      />
+    </div>
+    <div *ngIf="appointmentForm.get('appointmentDate')?.touched && appointmentForm.get('appointmentDate')?.invalid">
+      <small class="error">Please select a valid date for the appointment.</small>
+    </div>
+
+    <!-- Appointment Time -->
+    <div class="form-group">
+      <label for="appointmentTime">Time of Appointment:</label>
+      <input
+        id="appointmentTime"
+        type="time"
+        formControlName="appointmentTime"
+        required
+      />
+    </div>
+    <div *ngIf="appointmentForm.get('appointmentTime')?.touched && appointmentForm.get('appointmentTime')?.invalid">
+      <small class="error">Please select a valid time for the appointment.</small>
+    </div>
+
+    <!-- Status -->
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <select id="status" formControlName="status" required>
+        <option value="">Select Status</option>
+        <option value="Scheduled">Scheduled</option>
+        <option value="Completed">Completed</option>
+        <option value="Cancelled">Cancelled</option>
+      </select>
+    </div>
+    <div *ngIf="appointmentForm.get('status')?.touched && appointmentForm.get('status')?.invalid">
+      <small class="error">Please select a valid status.</small>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit">
+      {{ appointmentForm.get('id')?.value ? 'Update Appointment' : 'Book Appointment' }}
+    </button>
+  </form>
+</div>
+
+<!-- Appointments List -->
+<div class="list-container">
+  <h3>Appointments List</h3>
+
+  <div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      (ngModelChange)="filterAppointments()"
+      placeholder="Search by Appointment ID, Patient Name, or Status"
+      class="search-input"
+    />
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Appointment ID</th>
+        <th>Patient Name</th>
+        <th>Appointment Date</th>
+        <th>Appointment Time</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of filteredAppointments">
+        <td>{{ appointment.id }}</td>
+        <td>{{ appointment.patientName }}</td>
+        <td>{{ appointment.appointmentDate }}</td>
+        <td>{{ appointment.appointmentTime }}</td>
+        <td>{{ appointment.status }}</td>
+        <td>
+          <button class="btn delete-btn" (click)="deleteAppointment(appointment.id)">Delete</button>
+          <button class="btn update-btn" (click)="updateAppointment(appointment.id)">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

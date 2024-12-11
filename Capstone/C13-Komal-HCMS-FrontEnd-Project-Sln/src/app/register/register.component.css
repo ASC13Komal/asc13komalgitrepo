@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    flex-direction: column;
+  }
+  
+  .title h1 {
+    font-size: 32px;
+    color: #090909;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .register-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-box h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #0b0b0b;
+    font-weight: 600;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    
+    color: #a92020;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: #45a049;
+  }
+  

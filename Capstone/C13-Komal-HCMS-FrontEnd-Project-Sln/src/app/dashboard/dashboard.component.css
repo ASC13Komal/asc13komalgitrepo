@@ -1,0 +1,126 @@
+
+.background {
+  /* background-image: linear-gradient(135deg, #6d83f5, #b0c9fc); */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Dashboard Container Styling */
+.dashboard-container {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Title Styling */
+.title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Description Styling */
+.description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Button Container Styling */
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Button Styling */
+.nav-button {
+  padding: 15px 30px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-transform: capitalize;
+}
+
+.nav-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button:active {
+  background-color: #004085;
+}
+
+/* Logout Button Styling */
+.logout-button {
+  padding: 15px 30px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #dc3545;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-transform: capitalize;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logout-button:active {
+  background-color: #bd2130;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-button,
+  .logout-button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-button,
+  .logout-button {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+}
+
+#backbtn{
+  margin-left: 1400px;
+}
